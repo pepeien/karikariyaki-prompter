@@ -1,4 +1,8 @@
 .events {
+	&__title {
+		margin-top: 4vh;
+	}
+
 	&__selector {
 		display: flex;
 		flex-direction: column;
@@ -8,47 +12,6 @@
 		height: 100%;
 		padding-bottom: 4vh;
 		margin: 0 auto;
-
-		.events__title {
-			margin-top: 4vh;
-		}
-
-		.--new-event {
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			gap: 1.5vh 0;
-			background-color: transparent;
-			border: solid 1px $foreground;
-			border-radius: 12px;
-			color: $foreground;
-			font-family: 'Nunito';
-			font-size: 2vh;
-			font-weight: bolder;
-			padding: 2vh;
-
-			-webkit-transition: background-color ease-in-out .1s, border-color ease-in-out .1s, color ease-in-out .1s;
-			-moz-transition: 	background-color ease-in-out .1s, border-color ease-in-out .1s, color ease-in-out .1s;
-			-ms-transition: 	background-color ease-in-out .1s, border-color ease-in-out .1s, color ease-in-out .1s;
-			-o-transition: 		background-color ease-in-out .1s, border-color ease-in-out .1s, color ease-in-out .1s;
-			transition: 		background-color ease-in-out .1s, border-color ease-in-out .1s, color ease-in-out .1s;
-
-			&:hover {
-				cursor: pointer;
-			}
-
-			&:hover, &:focus {
-				background-color: $foreground-brighter;
-				border-color: $foreground-brighter;
-				color: $accent-bright;
-			}
-
-			mat-icon {
-				transform: scale(1.8);
-			}
-		}
 
 		&__list {
 			display: flex;
@@ -114,29 +77,6 @@
 					}
 				}
 			}
-				
-			&.--past {
-				li {
-					background-color: $foreground-disabled;
-					pointer-events: none;
-
-					button {
-						color: $foreground;
-					}
-				}
-			}
-
-			&.--future {
-				li {
-					background-color: transparent;
-					border: dotted 2.5px $foreground-bright;
-					pointer-events: none;
-
-					button {
-						color: $foreground;
-					}
-				}
-			}
 		}
 
 		mat-tab-group {
@@ -151,36 +91,6 @@
 
 			.mat-mdc-tab-body-wrapper {
 				flex-grow: 1;
-			}
-		
-			.mdc-tab {
-				border-radius: 15px;
-				font-family: 'DarumadropOne';
-				font-size: clamp(1vh, 1vh + 1rem, 4vh);
-				text-align: center;
-				color: $foreground;
-				background-color: $foreground;
-				overflow: hidden;
-				height: auto;
-				padding: 2vh;
-				margin-bottom: 1vh;
-				background-color: transparent;
-
-				-webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.1);
-				-moz-box-shadow: 	4px 4px 4px 0px rgba(0,0,0,0.1);
-				box-shadow: 		4px 4px 4px 0px rgba(0,0,0,0.1);
-
-				&--active {
-					background-color: $foreground-brighter;
-					
-					.mdc-tab__text-label {
-						color: $accent-bright !important;
-					}
-				}
-			}
-
-			.mdc-tab-indicator {
-				display: none !important;
 			}
 		}
 	}

@@ -1,5 +1,4 @@
 @import './selector';
-@import './registry';
 
 .events {
 	display: flex;
@@ -27,8 +26,6 @@
 		font-weight: bold;
 		text-align: center;
 		color: $foreground;
-		height: 15vh;
-		padding: 1vh 0;
 		width: 100%;
 		white-space: nowrap;
 		overflow: hidden;
