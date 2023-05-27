@@ -1,0 +1,32 @@
+<button
+	class="floating-avatar"
+	[@pop]
+	(click)="onAvatarClick()"
+>
+	<app-avatar [base64Image]="base64Image"></app-avatar>
+</button>
+<ul *ngIf="isMenuVisible" class="floating-avatar__list" [@pop]>
+	<li>
+		<ul *ngIf="isSubmenuVisible" class="floating-avatar__sub-list" [@fade]>
+			<button *ngFor="let lang of langList | keyvalue" (click)="onLanguageUpdate(lang.key)">
+				<span>{{ lang.value['LANGUAGE_DISPLAY_NAME'] }}</span>
+				<div
+					*ngIf="isLanguageActive(lang.value['LANGUAGE_DISPLAY_NAME'])"
+					class="--indicator"
+					[@fade]
+				></div>
+			</button>
+		</ul>
+		<button (click)="onLanguageButtonClick()">
+			<mat-icon>translate</mat-icon>
+			<span>{{ selectedLanguage['MENU_TRANSLATE_TITLE'] }}</span>
+			<mat-icon class="--arrow" [@rotateCounterClock180]="isSubmenuVisible ? 'start' : 'end'"> expand_more</mat-icon>
+		</button>
+	</li>
+	<li>
+		<button (click)="onLogout()">
+			<mat-icon>logout</mat-icon>
+			<span>{{ selectedLanguage['MENU_LOG_OUT_TITLE'] }}</span>
+		</button>
+	</li>
+</ul>

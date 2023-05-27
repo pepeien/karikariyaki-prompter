@@ -1,0 +1,164 @@
+.events {
+	&__registry {
+		display: flex;
+		flex-direction: column;
+		gap: 2vh 0;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		width: 100vw;
+		height: 100%;
+		background-color: $background;
+		z-index: $max-z-index - 3;
+		overflow: hidden;
+		align-self: flex-start;
+
+		.--back-event {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			bottom: 1vh;
+			left: 1vh;
+			background-color: $foreground;
+			color: $accent-bright;
+			font-family: 'DarumadropOne';
+			font-size: 2.5vh;
+			border-radius: 12px;
+			padding: 0 4vh;
+			height: 7vh;
+			margin: 0 auto;
+
+			-webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.1);
+			-moz-box-shadow: 	4px 4px 4px 0px rgba(0,0,0,0.1);
+			-ms-box-shadow: 	4px 4px 4px 0px rgba(0,0,0,0.1);
+			-o-box-shadow: 		4px 4px 4px 0px rgba(0,0,0,0.1);
+			box-shadow: 		4px 4px 4px 0px rgba(0,0,0,0.1);
+
+			-webkit-transition: background-color ease-in-out .1s, border-color ease-in-out .1s, color ease-in-out .1s;
+			-moz-transition: 	background-color ease-in-out .1s, border-color ease-in-out .1s, color ease-in-out .1s;
+			-ms-transition: 	background-color ease-in-out .1s, border-color ease-in-out .1s, color ease-in-out .1s;
+			-o-transition: 		background-color ease-in-out .1s, border-color ease-in-out .1s, color ease-in-out .1s;
+			transition: 		background-color ease-in-out .1s, border-color ease-in-out .1s, color ease-in-out .1s;
+
+			&:hover {
+				cursor: pointer;
+
+				background-color: $foreground-brighter;
+				border-color: $foreground-brighter;
+			}
+
+			mat-icon {
+				transform: scale(1.5);
+			}
+		}
+
+		&__form {
+			form {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+				width: 100%;
+				margin: 8vh 0 4vh 0;
+	
+				mat-form-field {
+					font-family: 'Nunito' !important;
+					font-weight: 600 !important;
+					color: $foreground-bright !important;
+					width: 100% !important;
+				
+					&[data-is-disabled="true"] {
+						color: $foreground-bright !important;
+					
+						.mat-mdc-text-field-wrapper {
+							background-color: $foreground-disabled !important;
+						}
+					}
+	
+					input {
+						height: 3vh !important;
+					}
+	
+					input, mat-label {
+						font-family: 'Nunito' !important;
+						color: $foreground-bright!important;
+					}
+				
+					.mat-mdc-text-field-wrapper {
+						background-color: transparent !important;
+						border-radius: $app-input-border-raidus !important;
+	
+						-webkit-box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1) !important; 
+						-moz-box-shadow:    0px 10px 15px -3px rgba(0,0,0,0.1) !important; 
+						-o-box-shadow:   	0px 10px 15px -3px rgba(0,0,0,0.1) !important;
+						box-shadow:         0px 10px 15px -3px rgba(0,0,0,0.1) !important;
+					}
+	
+					.mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+						border-color: $foreground-bright !important;
+					}
+				
+					.mdc-notched-outline__leading {
+						border-top-left-radius: $app-input-border-raidus !important;
+						border-bottom-left-radius: $app-input-border-raidus !important;
+					}
+				
+					.mdc-notched-outline__trailing {
+						border-top-right-radius: $app-input-border-raidus !important;
+						border-bottom-right-radius: $app-input-border-raidus !important;
+					}
+				
+					.mdc-notched-outline--notched {
+						color: $accent-dark !important;
+					}
+				}
+			}
+	
+			> button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 12px;
+				padding: 0 12vh;
+				height: 7vh;
+				margin: 0 auto;
+				background-color: transparent;
+				border: solid 2px transparent;
+				border-radius: $app-input-border-raidus;
+				border-color: $foreground-bright;
+				outline: transparent;
+				font-family: 'DarumadropOne';
+				font-size: 1.2rem;
+				color: $foreground-bright;
+
+				transition: color ease-in-out 300ms, border-color ease-in-out 300ms, background-color ease-in-out 300ms;
+		
+				&:disabled {
+					color: $foreground-bright;
+					border-color: $foreground-disabled;
+					background-color: $foreground-disabled;
+					pointer-events: none;
+
+					&:hover {
+						cursor: default;
+					}
+				}
+
+				&:not([disabled]) {
+					&:hover {
+						cursor: pointer;
+					}
+		
+					&:hover, &:focus {
+						border-color: transparent;
+						background-color: $foreground-brighter;
+						color: $accent-bright;
+					}
+				}
+				
+			}
+		}
+	}
+}

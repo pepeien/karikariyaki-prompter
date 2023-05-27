@@ -1,0 +1,1 @@
+export { InHouseSettings } from './settings';

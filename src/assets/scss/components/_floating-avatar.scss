@@ -1,0 +1,98 @@
+.floating-avatar {
+	position: fixed;
+	bottom: 1vh;
+	right: 1vh;
+	z-index: $max-z-index - 1;
+	border-radius: 50%;
+
+	-webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 	4px 4px 4px 0px rgba(0,0,0,0.1);
+	-ms-box-shadow: 	4px 4px 4px 0px rgba(0,0,0,0.1);
+	-o-box-shadow: 		4px 4px 4px 0px rgba(0,0,0,0.1);
+	box-shadow: 		4px 4px 4px 0px rgba(0,0,0,0.1);
+
+	&:hover {
+		cursor: pointer;
+
+		> app-avatar {
+			opacity: 0.8;
+		}
+	}
+
+	> app-avatar {
+		height: clamp($avatar-icon-min-size, 5vh + 1rem, $avatar-icon-max-size);
+		width: clamp($avatar-icon-min-size, 5vh + 1rem, $avatar-icon-max-size);
+		pointer-events: none;
+
+		-webkit-transition: opacity ease-in-out .1s;
+		-moz-transition: 	opacity ease-in-out .1s;
+		-ms-transition: 	opacity ease-in-out .1s;
+		-o-transition: 		opacity ease-in-out .1s;
+		transition: 		opacity ease-in-out .1s;
+	}
+
+	&__list{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1vh 0;
+		padding: 1vh 0;
+		transform-origin: bottom right;
+		position: fixed;
+		bottom: clamp($avatar-icon-min-size, 7vh + 1rem, $avatar-icon-max-size);
+		right: 4vh;
+		background-color: $foreground-bright;
+		z-index: $max-z-index - 1;
+		border-radius: 5px;
+
+		-webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.1);
+		-moz-box-shadow: 	4px 4px 4px 0px rgba(0,0,0,0.1);
+		-ms-box-shadow: 	4px 4px 4px 0px rgba(0,0,0,0.1);
+		-o-box-shadow: 		4px 4px 4px 0px rgba(0,0,0,0.1);
+		box-shadow: 		4px 4px 4px 0px rgba(0,0,0,0.1);
+
+		> li {
+			width: 100%;
+			background-color: transparent;
+			overflow: hidden;
+		}
+
+		button {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
+			padding: 1vh 2vh;
+			gap: 0 1vh;
+			width: 100%;
+			background-color: transparent;
+			color: $accent-bright;
+
+			.--arrow {
+				margin-left: auto;
+			}
+
+			.--indicator {
+				height: 100%;
+				height: 2vh;
+				width: 0.5vh;
+				border-radius: 15px;
+				background-color: $yellow-dark;
+				margin-left: auto;
+			}
+		}
+	}
+
+	&__sub-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1vh 0;
+		padding: 1vh 0;
+		padding-left: 0.25vh;
+		max-height: 20vh;
+		overflow: hidden;
+		overflow-y: auto;
+
+		transform-origin: bottom;
+	}
+}
