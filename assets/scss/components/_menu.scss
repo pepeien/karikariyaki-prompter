@@ -1,0 +1,108 @@
+.menu {
+	&__tree, &__stem {
+		display: flex;
+		flex-direction: row;
+		overflow: hidden;
+	}
+
+	&__tree {
+		width: 100%;
+	}
+
+	&__stem {
+		margin-left: 2vh;
+	}
+
+	&__node {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		button {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			height: 7vh;
+			padding: 0 8vh;
+			background-color: #C79D39;
+			border-radius: 10px;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+	
+			filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));
+	
+			-webkit-transition: height linear .1s;
+			-moz-transition: 	height linear .1s;
+			-ms-transition: 	height linear .1s;
+			-o-transition: 		height linear .1s;
+			transition: 		height linear .1s;
+
+			&:disabled {
+				background-color: gray;
+				pointer-events: none;
+
+				&:hover {
+					cursor: default;
+				}
+
+				span {
+					color: rgb(206, 193, 193);
+				}
+			}
+
+			&:not([disabled]) {
+				&:hover {
+					cursor: pointer;
+				}
+
+				&:hover, &[data-is-active="true"] {
+					height: 9vh;
+				}
+			}
+
+			span {
+				font-family: 'DarumadropOne';
+				font-size: 2rem;
+				font-weight: bold;
+				color: white;
+				width: 100%;
+				word-wrap: break-word;
+				text-align: start;
+			}
+	
+			.node__arrow {
+				width: 1.8vh;
+				height: 1.8vh;
+				margin-left: auto;
+
+				path {
+					stroke: $accent-dark;
+					transition: stroke ease-in-out 300ms;
+				}
+			}
+
+			&[data-contains-children="true"] {
+				& span {
+					width: calc(100% - 3.8vh);
+				}
+			}
+
+			&[data-contains-children="false"] {
+				.menu__node__indicator {
+					height: 100%;
+					min-height: 2vh;
+					width: 0.5vh;
+					border-radius: 15px;
+					background-color: $yellow-dark;
+				}
+			}
+		}
+
+		&__icon {
+			width: 2vh;
+			height: 2vh;
+			fill: $foreground-brighter;
+		}
+	}
+}

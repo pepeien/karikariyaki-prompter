@@ -1,0 +1,110 @@
+.events {
+	&__title {
+		margin-top: 4vh;
+	}
+
+	&__selector {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4vh 0;
+		width: 90%;
+		height: 100%;
+		padding-bottom: 4vh;
+		margin: 0 auto;
+
+		&__list {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 2vh 0;
+			padding: 4vh 0;
+			width: 90%;
+			margin: 0 auto;
+			overflow: hidden;
+
+			li {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: $foreground-bright;
+				border-radius: 12px;
+				width: 80%;
+				height: 8vh;
+				overflow: hidden;
+
+				-webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.1);
+				-moz-box-shadow: 	4px 4px 4px 0px rgba(0,0,0,0.1);
+				box-shadow: 		4px 4px 4px 0px rgba(0,0,0,0.1);
+
+				button {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+					height: 100%;
+					padding: 2vh;
+					background-color: transparent;
+					outline: transparent;
+					color: $accent-bright;
+					font-family: 'Nunito';
+					font-size: 2vh;
+					font-weight: bold;
+
+					-webkit-transition: background-color ease-in-out .1s;
+					-moz-transition: 	background-color ease-in-out .1s;
+					-ms-transition: 	background-color ease-in-out .1s;
+					-o-transition: 		background-color ease-in-out .1s;
+					transition: 		background-color ease-in-out .1s;
+
+					&:hover {
+						cursor: pointer;
+	
+						background-color: $foreground-brighter;
+					}
+
+					span {
+						width: 100%;
+						white-space: nowrap;
+						overflow: hidden;
+						overflow-x: auto;
+					}
+		
+					mat-icon {
+						transform: scale(1.8);
+						pointer-events: none;
+					}
+				}
+			}
+		}
+
+		mat-tab-group {
+			width: 100%;
+			height: 100%;
+			overflow-y: auto;
+
+			.mat-mdc-tab-labels {
+				gap: 0 1vh;
+				padding: 0 2vh;
+			}
+
+			.mat-mdc-tab-body-wrapper {
+				flex-grow: 1;
+			}
+		}
+	}
+}
+
+@media (min-width: 821px) {
+	.event {
+		&__selector {
+			&__list {
+				li {
+					width: 95%;
+				}
+			}
+	
+		}
+	}
+}

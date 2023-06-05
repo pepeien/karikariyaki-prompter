@@ -1,0 +1,47 @@
+// Thrid Party
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+// Base
+@import 'base/index';
+
+// Components
+@import './components/index';
+
+// Views
+@import './views//index';
+
+body {
+	background-color: $background;
+}
+
+.root__view {
+	min-height: 100dvh;
+	width: 100dvw;
+	overflow: hidden;
+	overflow-y: auto;
+
+	> app-loader {
+		.loader {
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			width: 100vw;
+			background-color: $background;
+			z-index: $max-z-index - 1;
+		
+			> app-logo {
+				position: absolute;
+				height: clamp(15vh, 15vh + 1rem, 25vh);
+				width: clamp(20vh, 20vh + 1rem, 30vh);
+			
+				& svg {
+					fill: $foreground-disabled;
+					opacity: 0.5;
+				}
+			}
+		}
+	}
+}
