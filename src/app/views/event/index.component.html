@@ -8,10 +8,7 @@
 		<div>
 			<h2>{{ languageSource['EVENT_ORDER_VIEW_COOKING_TITLE'] }}</h2>
 			<ul class="event__selector__list">
-				<li
-					*ngFor="let order of cookingOrders; index as i"
-					[@pop]="{ value: '', params: { delay: i * 100 } }"
-				>
+				<li *ngFor="let order of cookingOrders" [@pop]>
 					<button>
 						<span>{{ order.client }}</span>
 					</button>
@@ -21,10 +18,7 @@
 		<div>
 			<h2> {{ languageSource['EVENT_ORDER_VIEW_READY_TITLE'] }}</h2>
 			<ul class="event__selector__list --future">
-				<li
-					*ngFor="let order of readyOrders; index as i"
-					[@pop]="{ value: '', params: { delay: i * 100 } }"
-				>
+				<li *ngFor="let order of readyOrders" [@pop]>
 					<button>
 						<span>{{ order.client }}</span>
 					</button>

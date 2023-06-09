@@ -1,4 +1,5 @@
 // Thrid Party
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 // Base
@@ -8,7 +9,7 @@
 @import './components/index';
 
 // Views
-@import './views//index';
+@import './views/index';
 
 body {
 	background-color: $background;
