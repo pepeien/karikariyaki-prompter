@@ -1,27 +1,12 @@
-import { AnimationEvent } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import {
-	ApiResponseWrapper,
-	Event,
-	EventOrder,
-	EventOrderCreatableParams,
-	OrderStatus,
-	Product,
-} from 'karikarihelper';
+import { ActivatedRoute } from '@angular/router';
+import { ApiResponseWrapper, Event, EventOrder, OrderStatus, Product } from 'karikarihelper';
 
 // Animations
 import { AutomaticAnimation, BasicAnimations } from '@animations';
 
 // Services
-import {
-	ApiService,
-	EventsService,
-	LanguageService,
-	LoadingService,
-	SocketService,
-} from '@services';
+import { EventsService, LanguageService, LoadingService, SocketService } from '@services';
 
 @Component({
 	selector: 'app-event-view',
