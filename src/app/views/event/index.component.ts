@@ -6,7 +6,13 @@ import { ApiResponseWrapper, Event, EventOrder, OrderStatus, Product } from 'kar
 import { AutomaticAnimation, BasicAnimations } from '@animations';
 
 // Services
-import { EventsService, LanguageService, LoadingService, SocketService } from '@services';
+import {
+	AlertService,
+	EventsService,
+	LanguageService,
+	LoadingService,
+	SocketService,
+} from '@services';
 
 @Component({
 	selector: 'app-event-view',
@@ -38,6 +44,7 @@ export class EventViewComponent implements OnInit {
 	public readyOrders: EventOrder[] = [];
 
 	constructor(
+		private _alertService: AlertService,
 		private _activedRoute: ActivatedRoute,
 		private _eventService: EventsService,
 		private _languageService: LanguageService,
@@ -53,11 +60,19 @@ export class EventViewComponent implements OnInit {
 		}
 
 		this._socketService.socket.on('event:error', (response) => {
-			console.log(response);
+			const serializedResponse = response.description as string[];
+
+			serializedResponse.forEach((errorDescription) => {
+				this._alertService.pushWarning(errorDescription);
+			});
 		});
 
-		this._socketService.socket.on('orders:error', (response) => {
-			console.log(response);
+		this._socketService.socket.on('order:error', (response) => {
+			const serializedResponse = response.description as string[];
+
+			serializedResponse.forEach((errorDescription) => {
+				this._alertService.pushWarning(errorDescription);
+			});
 		});
 
 		this._socketService.socket.on('orders:refresh', (response) => {

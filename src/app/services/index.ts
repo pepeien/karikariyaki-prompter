@@ -1,3 +1,4 @@
+export { AlertService } from './alert';
 export { ApiService } from './api';
 export { EventsService } from './events';
 export { LanguageService } from './language';
