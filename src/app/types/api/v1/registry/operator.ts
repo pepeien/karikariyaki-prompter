@@ -10,7 +10,7 @@ import {
 // Types
 import { BaseApi } from '@types';
 
-export class OperatorRegistryApiV1 extends BaseApi {
+export class ApiV1OperatorRegistry extends BaseApi {
 	private _endpoint = `${this.root}/v1/admin/registry/operator`;
 
 	public search(params?: OperatorQueryableParams): Observable<ApiResponseWrapper<Operator[]>> {
@@ -24,7 +24,19 @@ export class OperatorRegistryApiV1 extends BaseApi {
 			endpoint.searchParams.append('displayName', params?.displayName.trim());
 		}
 
+		if (params?.realmId) {
+			endpoint.searchParams.append('realmId', params.realmId.trim());
+		}
+
 		return this.client.get<ApiResponseWrapper<Operator[]>>(endpoint.href, {
+			withCredentials: true,
+		});
+	}
+
+	public roles(): Observable<ApiResponseWrapper<string[]>> {
+		const endpoint = new URL(this._endpoint + '/roles');
+
+		return this.client.get<ApiResponseWrapper<string[]>>(endpoint.href, {
 			withCredentials: true,
 		});
 	}
@@ -45,6 +57,8 @@ export class OperatorRegistryApiV1 extends BaseApi {
 			{
 				displayName: params.displayName,
 				userName: params.userName,
+				realmId: params.realmId,
+				role: params.role,
 				photo: params.photo,
 			},
 			{
@@ -63,6 +77,7 @@ export class OperatorRegistryApiV1 extends BaseApi {
 			endpoint.href,
 			{
 				displayName: params.displayName,
+				role: params.role,
 				photo: params.photo,
 			},
 			{

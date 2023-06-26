@@ -1,10 +1,10 @@
 import { Observable } from 'rxjs';
-import { ApiResponseWrapper } from 'karikarihelper';
+import { ApiResponseWrapper, QrCodeRseponse } from 'karikarihelper';
 
 // Types
 import { BaseApi } from '@types';
 
-export class EventOrderRegistryApiV1 extends BaseApi {
+export class ApiV1EventOrderRegistry extends BaseApi {
 	private _endpoint = `${this.root}/v1/admin/registry/event/order`;
 
 	public status(): Observable<ApiResponseWrapper<string[]>> {

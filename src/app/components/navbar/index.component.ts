@@ -299,7 +299,7 @@ export class NavbarComponent implements OnInit {
 			this.enableLoading();
 		}, BasicAnimations.SHRINK_ANIMATION_DURATION_IN_MS);
 
-		this._apiService.V1.operatorAdmin.signIn(userName).subscribe({
+		this._apiService.V1.operator.signIn(userName).subscribe({
 			next: (response) => {
 				if (response.wasSuccessful === false || !response.result) {
 					return;
@@ -309,9 +309,7 @@ export class NavbarComponent implements OnInit {
 
 				this._operatorService.signIn(response.result);
 			},
-			error: (error) => {
-				this.setError(error.error.description ?? 'Failed to sign in');
-
+			error: () => {
 				clearTimeout(loadingAnimation);
 
 				this.disableLoading();

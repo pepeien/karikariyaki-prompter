@@ -10,7 +10,7 @@ import {
 // Types
 import { BaseApi } from '@types';
 
-export class EventRegistryApiV1 extends BaseApi {
+export class ApiV1EventRegistry extends BaseApi {
 	private _endpoint = `${this.root}/v1/admin/registry/event`;
 
 	public searchActive(): Observable<ApiResponseWrapper<Event[]>> {
