@@ -19,9 +19,9 @@ npm install && npm start
 | Variable       | Description  | Type           | Default | Required |
 |:--------------:|:---------------|:------:|:--------:|:--------:|
 | production | If the environment is production | Boolean | | ✅ |
-| apiURI     | Karikariyaki API address         | String  | | ✅ |
-| wsURI      | Karikariyaki API address         | String  | | ✅ |
-| wsPath     | Karikariyaki API address         | String  | | ✅ |
+| apiURI     | API address                      | String  | | ✅ |
+| wsURI      | API socket address               | String  | | ✅ |
+| wsPath     | API socket path                  | String  | | ✅ |
 
 ### Running
 
