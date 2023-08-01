@@ -1,48 +1,48 @@
 <div
-	class="navbar__wrapper"
-	[@loginSwipe]="loginNavbarSwipeAnimationState"
-	(@loginSwipe.done)="onLoginNavbarSwipeAnimationDone($event)"
-	[@loggedSwipe]="wasLoginNavbarDispatched ? loggedNavbarSwipeAnimationState : 'invalid'"
-	(@loggedSwipe.done)="onLoggedNavbarSwipeAnimationDone($event)"
+    class="navbar__wrapper"
+    [@loginSwipe]="loginNavbarSwipeAnimationState"
+    (@loginSwipe.done)="onLoginNavbarSwipeAnimationDone($event)"
+    [@loggedSwipe]="wasLoginNavbarDispatched ? loggedNavbarSwipeAnimationState : 'invalid'"
+    (@loggedSwipe.done)="onLoggedNavbarSwipeAnimationDone($event)"
 >
-	<div class="navbar__login" *ngIf="!wasLoginNavbarDispatched">
-		<app-avatar
-			[base64Image]="operator?.photo"
-			[@breathe]="loginAvatarBreatheAnimationState"
-			(@breathe.done)="onLoginAvatarBreatheAnimationDone()"
-			[@bezierShrink]="loginAvatarShrinkAnimationState"
-		></app-avatar>
-		<form [formGroup]="loginForm">
-			<mat-form-field
-				appearance="outline"
-				[@bezierHeightShrink]="loginInputShrinkAnimationState"
-				[attr.data-is-disabled]="loginForm.disabled"
-			>
-				<mat-label>{{ languageSource['LOGIN_USERNAME_INPUT_TITLE'] }}</mat-label>
-				<input
-					matInput
-					formControlName="userName"
-					[minlength]="NAVBAR_INPUT_USER_NAME_MIN_LENGTH"
-					[maxLength]="NAVBAR_INPUT_USER_NAME_MAX_LENGTH"
-					(focus)="onFocus()"
-					required
-				>
-			</mat-form-field>
-			<button
-				type="button"
-				(click)="onLogin()"
-				[@bezierHeightShrink]="loginInputShrinkAnimationState"
-				[disabled]="loginForm.disabled || loginForm.get('userName')?.invalid"
-			>
-				{{ languageSource['LOGIN_BUTTON_TITLE'] }}
-			</button>
-			<div
-				class="navbar__login__error"
-				[@bezierHeightShrink]="loginInputErrorShrinkAnimationState"
-			>
-				{{ languageSource[errorMessage] ? languageSource[errorMessage] : errorMessage }}
-			</div>
-		</form>
-		<app-logo [@bezierShrink]="loginInputShrinkAnimationState"></app-logo>
-	</div>
+    <div class="navbar__login" *ngIf="!wasLoginNavbarDispatched">
+        <app-avatar
+            [base64Image]="operator?.photo"
+            [@breathe]="loginAvatarBreatheAnimationState"
+            (@breathe.done)="onLoginAvatarBreatheAnimationDone()"
+            [@bezierShrink]="loginAvatarShrinkAnimationState"
+        ></app-avatar>
+        <form [formGroup]="loginForm">
+            <mat-form-field
+                appearance="outline"
+                [@bezierHeightShrink]="loginInputShrinkAnimationState"
+                [attr.data-is-disabled]="loginForm.disabled"
+            >
+                <mat-label>{{ languageSource['LOGIN_USERNAME_INPUT_TITLE'] }}</mat-label>
+                <input
+                    matInput
+                    formControlName="userName"
+                    [minlength]="NAVBAR_INPUT_USER_NAME_MIN_LENGTH"
+                    [maxLength]="NAVBAR_INPUT_USER_NAME_MAX_LENGTH"
+                    (focus)="onFocus()"
+                    required
+                />
+            </mat-form-field>
+            <button
+                type="button"
+                (click)="onLogin()"
+                [@bezierHeightShrink]="loginInputShrinkAnimationState"
+                [disabled]="loginForm.disabled || loginForm.get('userName')?.invalid"
+            >
+                {{ languageSource['LOGIN_BUTTON_TITLE'] }}
+            </button>
+            <div
+                class="navbar__login__error"
+                [@bezierHeightShrink]="loginInputErrorShrinkAnimationState"
+            >
+                {{ languageSource[errorMessage] ? languageSource[errorMessage] : errorMessage }}
+            </div>
+        </form>
+        <app-logo [@bezierShrink]="loginInputShrinkAnimationState"></app-logo>
+    </div>
 </div>

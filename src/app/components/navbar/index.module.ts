@@ -11,8 +11,8 @@ import { AvatarModule, LogoModule } from '@components';
 import { FormsBundle, MaterialBundle } from '@imports';
 
 @NgModule({
-	declarations: [NavbarComponent],
-	imports: [AvatarModule, CommonModule, FormsBundle, LogoModule, MaterialBundle],
-	exports: [NavbarComponent],
+    declarations: [NavbarComponent],
+    imports: [AvatarModule, CommonModule, FormsBundle, LogoModule, MaterialBundle],
+    exports: [NavbarComponent],
 })
 export class NavbarModule {}

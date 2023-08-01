@@ -7,39 +7,39 @@ import { AutomaticAnimation, BasicAnimations } from '@animations';
 import { LoadingService } from '@services';
 
 @Component({
-	selector: 'app-loader',
-	templateUrl: './index.component.html',
-	animations: [AutomaticAnimation.slideInOut, BasicAnimations.breatheAnimation],
+    selector: 'app-loader',
+    templateUrl: './index.component.html',
+    animations: [AutomaticAnimation.slideInOut, BasicAnimations.breatheAnimation],
 })
 export class LoaderComponent implements OnInit {
-	/**
-	 * Primitives
-	 */
-	public isLoading = false;
+    /**
+     * Primitives
+     */
+    public isLoading = false;
 
-	/**
-	 * Animations
-	 */
-	public logoBreatheAnimationState: 'inhale' | 'exhale' = 'inhale';
+    /**
+     * Animations
+     */
+    public logoBreatheAnimationState: 'inhale' | 'exhale' = 'inhale';
 
-	constructor(private _loadingService: LoadingService) {}
+    constructor(private _loadingService: LoadingService) {}
 
-	ngOnInit(): void {
-		this._loadingService.loading.subscribe({
-			next: (nextLoading) => {
-				this.isLoading = nextLoading;
-			},
-		});
-	}
+    ngOnInit(): void {
+        this._loadingService.loading.subscribe({
+            next: (nextLoading) => {
+                this.isLoading = nextLoading;
+            },
+        });
+    }
 
-	public onLogoBreatheAnimationDone() {
-		if (this.isLoading === false) {
-			this.logoBreatheAnimationState = 'inhale';
+    public onLogoBreatheAnimationDone() {
+        if (this.isLoading === false) {
+            this.logoBreatheAnimationState = 'inhale';
 
-			return;
-		}
+            return;
+        }
 
-		this.logoBreatheAnimationState =
-			this.logoBreatheAnimationState === 'inhale' ? 'exhale' : 'inhale';
-	}
+        this.logoBreatheAnimationState =
+            this.logoBreatheAnimationState === 'inhale' ? 'exhale' : 'inhale';
+    }
 }

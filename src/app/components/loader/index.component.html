@@ -1,11 +1,4 @@
-<div
-	*ngIf="isLoading"
-	class="loader"
-	[@slideInOut]
->
-	<app-logo
-		[@breathe]="logoBreatheAnimationState"
-		(@breathe.done)="onLogoBreatheAnimationDone()"
-	>
-	</app-logo>
+<div *ngIf="isLoading" class="loader" [@slideInOut]>
+    <app-logo [@breathe]="logoBreatheAnimationState" (@breathe.done)="onLogoBreatheAnimationDone()">
+    </app-logo>
 </div>
