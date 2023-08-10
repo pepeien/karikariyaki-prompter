@@ -11,8 +11,8 @@ import { EventViewComponent } from './index.component';
 import { AvatarModule, LogoModule } from '@components';
 
 @NgModule({
-	declarations: [EventViewComponent],
-	imports: [AvatarModule, CommonModule, LogoModule, MaterialBundle],
-	exports: [EventViewComponent],
+    declarations: [EventViewComponent],
+    imports: [AvatarModule, CommonModule, LogoModule, MaterialBundle],
+    exports: [EventViewComponent],
 })
 export class EventViewModule {}

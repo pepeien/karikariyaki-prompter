@@ -1,34 +1,34 @@
 @import './selector';
 
 .events {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	height: 100%;
-	width: 100%;
-	z-index: $max-z-index - 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    z-index: $max-z-index - 2;
 
-	app-logo {
-		position: fixed;
-		height: clamp(10vh, 10vh + 1rem, 15vh);
-		width: clamp(15vh, 10vh + 1rem, 20vh);
-		top: 85dvh;
+    app-logo {
+        position: fixed;
+        height: clamp(10vh, 10vh + 1rem, 15vh);
+        width: clamp(15vh, 10vh + 1rem, 20vh);
+        top: 85dvh;
 
-		& svg {
-			fill: $foreground-disabled;
-			opacity: 0.5;
-		}
-	}
+        & svg {
+            fill: $foreground-disabled;
+            opacity: 0.5;
+        }
+    }
 
-	&__title {
-		font-family: 'Nunito';
-		font-size: clamp(6vh, 6vh + 1.2rem, 8vh);
-		font-weight: bold;
-		text-align: center;
-		color: $foreground;
-		width: 100%;
-		white-space: nowrap;
-		overflow: hidden;
-		overflow-x: auto;
-	}
+    &__title {
+        font-family: 'Nunito';
+        font-size: clamp(6vh, 6vh + 1.2rem, 8vh);
+        font-weight: bold;
+        text-align: center;
+        color: $foreground;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        overflow-x: auto;
+    }
 }

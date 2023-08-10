@@ -1,29 +1,25 @@
-<main
-	*ngIf="selectedEvent"
-	class="event"
-	[@slideFromLeft]
->
-	<div class="event__title">{{ selectedEvent.name }}</div>
-	<div class="event__selector">
-		<div>
-			<h2>{{ languageSource['EVENT_ORDER_VIEW_COOKING_TITLE'] }}</h2>
-			<ul class="event__selector__list">
-				<li *ngFor="let order of cookingOrders" [@pop]>
-					<button>
-						<span>{{ order.client }}</span>
-					</button>
-				</li>
-			</ul>
-		</div>
-		<div>
-			<h2> {{ languageSource['EVENT_ORDER_VIEW_READY_TITLE'] }}</h2>
-			<ul class="event__selector__list --future">
-				<li *ngFor="let order of readyOrders" [@pop]>
-					<button>
-						<span>{{ order.client }}</span>
-					</button>
-				</li>
-			</ul>
-		</div>
-	</div>
+<main *ngIf="selectedEvent" class="event" [@slideFromLeft]>
+    <div class="event__title">{{ selectedEvent.name }}</div>
+    <div class="event__selector">
+        <div>
+            <h2>{{ languageSource['EVENT_ORDER_VIEW_COOKING_TITLE'] }}</h2>
+            <ul class="event__selector__list">
+                <li *ngFor="let order of cookingOrders" [@pop]>
+                    <button>
+                        <span>{{ order.client }}</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2>{{ languageSource['EVENT_ORDER_VIEW_READY_TITLE'] }}</h2>
+            <ul class="event__selector__list --future">
+                <li *ngFor="let order of readyOrders" [@pop]>
+                    <button>
+                        <span>{{ order.client }}</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
 </main>

@@ -19,26 +19,26 @@ import { FloatAvatarModule, LoaderComponentModule, NavbarModule } from '@compone
 import { ApiService } from '@services';
 
 @NgModule({
-	declarations: [AppComponent],
-	imports: [
-		AppRoutingModule,
-		BrowserAnimationsModule,
-		BrowserModule,
-		HttpClientModule,
-		FloatAvatarModule,
-		LoaderComponentModule,
-		NavbarModule,
-		SharedModule,
-	],
-	providers: [
-		ApiService,
-		RouterModule,
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: Interceptor,
-			multi: true,
-		},
-	],
-	bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        HttpClientModule,
+        FloatAvatarModule,
+        LoaderComponentModule,
+        NavbarModule,
+        SharedModule,
+    ],
+    providers: [
+        ApiService,
+        RouterModule,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: Interceptor,
+            multi: true,
+        },
+    ],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

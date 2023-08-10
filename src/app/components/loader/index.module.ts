@@ -8,8 +8,8 @@ import { LoaderComponent } from './index.component';
 import { LogoModule } from '../logo';
 
 @NgModule({
-	declarations: [LoaderComponent],
-	imports: [CommonModule, LogoModule],
-	exports: [LoaderComponent],
+    declarations: [LoaderComponent],
+    imports: [CommonModule, LogoModule],
+    exports: [LoaderComponent],
 })
 export class LoaderComponentModule {}

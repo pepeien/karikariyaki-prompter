@@ -11,8 +11,8 @@ import { AvatarModule } from '@components';
 import { MaterialBundle } from '@imports';
 
 @NgModule({
-	declarations: [FloatAvatarComponent],
-	imports: [AvatarModule, CommonModule, MaterialBundle],
-	exports: [FloatAvatarComponent],
+    declarations: [FloatAvatarComponent],
+    imports: [AvatarModule, CommonModule, MaterialBundle],
+    exports: [FloatAvatarComponent],
 })
 export class FloatAvatarModule {}

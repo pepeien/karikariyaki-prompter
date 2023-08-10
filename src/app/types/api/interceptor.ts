@@ -1,9 +1,9 @@
 import {
-	HttpInterceptor,
-	HttpRequest,
-	HttpHandler,
-	HttpEvent,
-	HttpErrorResponse,
+    HttpInterceptor,
+    HttpRequest,
+    HttpHandler,
+    HttpEvent,
+    HttpErrorResponse,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
@@ -13,23 +13,23 @@ import { AlertService } from '@services';
 
 @Injectable()
 export class Interceptor implements HttpInterceptor {
-	constructor(private _alertService: AlertService) {}
+    constructor(private _alertService: AlertService) {}
 
-	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		return next.handle(request).pipe(
-			catchError((response: HttpErrorResponse) => {
-				if (response.error instanceof ErrorEvent) {
-					return throwError(() => response.error.message);
-				}
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        return next.handle(request).pipe(
+            catchError((response: HttpErrorResponse) => {
+                if (response.error instanceof ErrorEvent) {
+                    return throwError(() => response.error.message);
+                }
 
-				const errorDescriptions = response.error.description as string[];
+                const errorDescriptions = response.error.description as string[];
 
-				errorDescriptions.forEach((errorDescription) => {
-					this._alertService.pushWarning(errorDescription);
-				});
+                errorDescriptions.forEach((errorDescription) => {
+                    this._alertService.pushWarning(errorDescription);
+                });
 
-				return throwError(() => errorDescriptions);
-			}),
-		);
-	}
+                return throwError(() => errorDescriptions);
+            }),
+        );
+    }
 }
